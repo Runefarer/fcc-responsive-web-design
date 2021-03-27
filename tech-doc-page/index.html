@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Accessibility Technical Documentation Page</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&display=swap"
+    rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="navbar">
+      <header>
+        <h1>Web Accessibility</h1>
+      </header>
+      <ul class="nav-links">
+        <li>
+          <a class="nav-link" href="#introduction">Introduction</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#what_is_accessibility?">What is Accessibility?</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#semantic_html">Semantic HTML</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#alternate_text_and_figures">Alternate Text and Figures</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#proper_labeling">Proper Labeling</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#screen_reader_only_elements">Screen Reader Only Elements</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#screen_reader_hidden_elements">Screen Reader Hidden Elements</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#color_contrast">Color Contrast</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#references">References</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section id="introduction" class="main-section">
+        <header>
+          <h2>Introduction</h2>
+        </header>
+        <article>
+          <p>
+            <strong>Accessibility</strong> (often abbreviated to <strong>A11y</strong> — as in "a" then 11 characters
+            then "y") in Web development means enabling as many people as possible to use Web sites, even when those
+            people's abilities are limited in some way.
+          </p>
+          <p>
+            For many people, technology makes things easier. For people with disabilities, technology makes things
+            possible. Accessibility means developing content to be as accessible as possible no matter an individual's
+            physical and cognitive abilities and no matter how they access the web.
+          </p>
+          <figure class="quote">
+            <blockquote cite="https://www.w3.org/standards/webdesign/accessibility" class="quote-content">
+              <p>
+                <strong>The Web is fundamentally designed to work for all people</strong>, whatever their hardware,
+                software, language, culture, location, or physical or mental ability. When the Web meets this goal, it
+                is accessible to people with a diverse range of hearing, movement, sight, and cognitive ability.
+              </p>
+            </blockquote>
+            <figcaption class="quote-by">
+              <cite><a href="https://www.w3.org/standards/webdesign/accessibility" target="_blank">W3C -
+                  Accessibility</a></cite>
+            </figcaption>
+          </figure>
+        </article>
+      </section>
+      <section id="what_is_accessibility?" class="main-section">
+        <header>
+          <h2>What is Accessibility?</h2>
+        </header>
+        <article>
+          <p>
+            Accessibility is the practice of making your websites usable by as many people as possible. We traditionally
+            think of this as being about people with disabilities, but the practice of making sites accessible also
+            benefits other groups such as those using mobile devices, or those with slow network connections.
+          </p>
+          <p>
+            Accessibility is the right thing to do. Providing accessible sites is part of the law in some countries,
+            which can open up some significant markets that otherwise would not be able to use your services or buy your
+            products.
+          </p>
+          <p>Building accessible sites benefit everyone:</p>
+          <ul>
+            <li>
+              Semantic HTML, which improves accessibility, also improves SEO, making your site more findable.
+            </li>
+            <li>
+              Caring about accessibility demonstrates good ethics and morals, which improves your public image.
+            </li>
+            <li>
+              Other good practices that improve accessibility also make your site more usable by other groups, such as
+              mobile phone users or those on low network speed. In fact, everyone can benefit from many such
+              improvements.
+            </li>
+            <li>
+              Did we mention it is also the law in some places?
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="semantic_html" class="main-section">
+        <header>
+          <h2>Semantic HTML</h2>
+        </header>
+        <article>
+          <p>
+            The HTML5 specification introduced several semantic sectioning elements to help organize the structure of
+            documents. Semantic sectioning elements are specifically designed to communicate structural meaning to
+            browsers and other technologies interpreting the document on behalf of users, such as screen readers and
+            voice assistants.
+          </p>
+          <p>
+            Semantic HTML doesn't take any longer to write than non-semantic (bad) markup if you do it consistently from
+            the start of your project. Even better, semantic markup has other benefits beyond accessibility:
+          </p>
+          <ol>
+            <li>
+              <strong>Easier to develop with</strong> — as mentioned above, you get some functionality for free, plus it
+              is arguably easier to understand.
+            </li>
+            <li>
+              <strong>Better on mobile</strong> — semantic HTML is arguably lighter in file size than non-semantic
+              spaghetti code, and easier to make responsive.
+            </li>
+            <li>
+              <strong>Good for SEO</strong> — search engines give more importance to keywords inside headings, links,
+              etc. than keywords included in non-semantic <code>&lt;div&gt;</code>s, etc., so your documents will be
+              more findable by customers.
+            </li>
+          </ol>
+          <p>
+            Some of the semantic HTML elements are:
+          </p>
+          <ul>
+            <li>
+              <strong>HTML Navigational Element</strong> (<code>&lt;nav&gt;</code>) defines a section that contains
+              navigation links that appear often on a site. You can have primary and secondary menus, but you cannot
+              nest a <code>&lt;nav&gt;</code> element inside another <code>&lt;nav&gt;</code> element.
+            </li>
+            <li>
+              <strong>HTML Article Element</strong> (<code>&lt;article&gt;</code>) defines a piece of self-contained
+              content. It does not refer to the main content alone and can be used for comments and widgets.
+            </li>
+            <li>
+              <strong>HTML Section Element</strong> (<code>&lt;section&gt;</code>) defines a section of a document to
+              indicate a related grouping of semantic meaning. It makes sense to use the section element to provide
+              extra context for the parent element.
+            </li>
+            <li>
+              <strong>HTML Aside Element</strong> (<code>&lt;aside&gt;</code>) defines a section that, though related to
+              the main element, doesn't belong to the main flow, like an explanation box or an advertisement. The aside
+              element has its own outline, but doesn't belong to the main one.
+            </li>
+            <li>
+              <strong>HTML Body Element</strong> (<code>&lt;body&gt;</code>) defines all the content of a document. It
+              contains all the content and HTML tags.
+            </li>
+            <li>
+              <strong>HTML Header Element</strong> (<code>&lt;header&gt;</code>) defines a page area that typically
+              contains a logo, title, and navigation. The header can also be used inside other semantic elements such as
+              <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>. A section header might contain the section's
+              heading, author name, etc. <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>,
+              <code>&lt;aside&gt;</code>, and <code>&lt;nav&gt;</code> can have their own <code>&lt;header&gt;</code>.
+              Despite its name, the header is not necessarily positioned at the beginning of a page or section.
+            </li>
+            <li>
+              <strong>HTML Footer Element</strong> (<code>&lt;footer&gt;</code>) defines a page footer, which typically
+              contains copyright or legal notices and sometimes some links. In the context of a section, a footer might
+              contain the sectioned content's publication date, license information, etc. <code>&lt;article&gt;</code>,
+              <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;nav&gt;</code> can have their own
+              <code>&lt;footer&gt;</code>. Despite its name, the footer is not necessarily positioned at the end of a
+              page or section.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="alternate_text_and_figures" class="main-section">
+        <header>
+          <h2>Alternate Text and Figures</h2>
+        </header>
+        <article>
+          <p>
+            People with visual impairments rely on screen readers to convert web content to an audio interface. They
+            won't get information if it's only presented visually. For images, screen readers can access the
+            <code>alt</code> attribute and read its contents to deliver key information.
+          </p>
+          <p>
+            Good <code>alt</code> text provides the reader a brief description of the image. You should always include
+            an <code>alt</code> attribute on your image. Per HTML5 specification, this is now considered mandatory.
+          </p>
+          <p>
+            Here is an example of an image with the <code>alt</code> attribute set properly:
+          </p>
+          <div class="codeblock">
+            <code>
+  &lt;img src="importantLogo.jpeg" alt="Company logo"&gt;
+            </code>
+          </div>
+          <p>
+            HTML5 introduced the <code>&lt;figure&gt;</code> element, along with the related
+            <code>&lt;figcaption&gt;</code>. Used together, these items wrap a visual representation (like an image,
+            diagram, or chart) along with its caption. This gives a two-fold accessibility boost by both semantically
+            grouping related content, and providing a text alternative that explains the <code>&lt;figure&gt;</code>.
+          </p>
+          <p>
+            Here's an example - note that the <code>&lt;figcaption&gt;</code> goes inside the
+            <code>&lt;figure&gt;</code> tags and can be combined with other elements:
+          </p>
+          <div class="codeblock">
+            <code>
+  &lt;figure&gt;
+    &lt;img src="elephant.jpg" alt="Elephant at sunset"&gt;
+    &lt;figcaption&gt;An elephant at sunset&lt;/figcaption&gt;
+  &lt;/figure&gt;
+            </code>
+          </div>
+        </article>
+      </section>
+      <section id="proper_labeling" class="main-section">
+        <header>
+          <h2>Proper Labeling</h2>
+        </header>
+        <article>
+          <p>
+            Form elements need to be labelled properly to be accessible to assisstive technology like screen readers. It
+            is not sufficient to just place the label next to the form control, there is additional markup required to
+            make forms properly accessible.
+          </p>
+          <p>
+            The <code>&lt;label&gt;</code> tag wraps the text for a specific form control item, usually the name or
+            label for a choice. This ties meaning to the item and makes the form more readable. The <code>for</code>
+            attribute on a <code>&lt;label&gt;</code> tag explicitly associates that <code>&lt;label&gt;</code> with the
+            form control and is used by screen readers.
+          </p>
+          <p>
+            The value of the <code>for</code> attribute must be the same as the value of the <code>id</code> attribute
+            of the form control. Here's an example:
+          </p>
+          <div class="codeblock">
+            <code>
+  &lt;form&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+  &lt;/form&gt;
+            </code>
+          </div>
+        </article>
+      </section>
+      <section id="screen_reader_only_elements" class="main-section">
+        <header>
+          <h2>Screen Reader Only Elements</h2>
+        </header>
+        <article>
+          <p>
+            Sometimes it is helpful to have an alternative presentations to a visual element to make it more accessible.
+            For example, adding a table of data next to a chart visualization. But, you may not want the table of data
+            for your visual users since they can already see the chart. In such cases, you can use CSS to hide screen
+            reader only content from visual users.
+          </p>
+          <p>
+            Here's an example of the CSS rules that accomplish this:
+          </p>
+          <div class="codeblock">
+            <code>
+  .sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+    overflow: hidden;
+  }
+            </code>
+          </div>
+          <p>
+            The following CSS approaches will <strong>NOT</strong> do the same thing:
+          </p>
+          <ul>
+            <li>
+              <code>display: none;</code> or <code>visibility: hidden;</code> hides content for everyone, including
+              screen reader users.
+            </li>
+            <li>
+              Zero values for pixel sizes, such as <code>width: 0px; height: 0px;</code> removes that element from the
+              flow of your document, meaning screen readers will ignore it.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="screen_reader_hidden_elements" class="main-section">
+        <header>
+          <h2>Screen Reader Hidden Elements</h2>
+        </header>
+        <article>
+          <p>
+            Using CSS, you can style your page however you want. In some CSS approaches, you might want to add certain
+            styles that repeat or have visual elements that offer no information other than being there for visual
+            flavor. Such elements will confuse screen reader users, and it is helpful to have them hidden from screen
+            readers.
+          </p>
+          <p>
+            Using the <code>aria-hidden</code> attribute with its value set to <code>true</code> will make that
+            particular element hidden from the screen reader but still visible visually.
+          </p>
+          <p>
+            Here's an example of this approach:
+          </p>
+          <div class="codeblock">
+            <code>
+  &lt;div class="container"&gt;
+    &lt;div class="full-content"&gt;
+      Hello World
+    &lt;/div&gt;
+    &lt;div class="half-overlay" aria-hidden="true"&gt;
+      Hello World
+    &lt;/div&gt;
+  &lt;/div&gt;
+            </code>
+          </div>
+        </article>
+      </section>
+      <section id="color_contrast" class="main-section">
+        <header>
+          <h2>Color Contrast</h2>
+        </header>
+        <article>
+          <p>
+            Low contrast between the foreground and background colors can make text difficult to read. Sufficient
+            contrast improves the readability of your content, but what exactly does "sufficient" mean?
+          </p>
+          <p>
+            The Web Content Accessibility Guidelines (WCAG) recommend at least a 4.5 to 1 contrast ratio for normal
+            text. The ratio is calculated by comparing the relative luminance values of two colors. This ranges from 1:1
+            for the same color, or no contrast, to 21:1 for white against black, the strongest contrast. There are many
+            contrast checking tools available online that calculate this ratio for you.
+          </p>
+          <p>
+            Here's an example of bad color contrast with a ratio of <strong>2.18</strong>:
+          </p>
+          <p class="color-contrast bad-color-contrast">
+            This block has bad color contrast!
+          </p>
+
+          <p>
+            Here's an example of good color contrast with a ratio of <strong>9.18</strong>:
+          </p>
+          <p class="color-contrast good-color-contrast">
+            This block has good color contrast!
+          </p>
+          <p>
+            When choosing a color scheme for your website, choose foreground and background colors that have good
+            contrast.
+          </p>
+          <p>
+            The color contrast between background and foreground content should be at a minimum level to ensure
+            legibility:
+          </p>
+          <ul>
+            <li>
+              Text and its background should have a contrast ratio of at least 4.5:1.
+            </li>
+            <li>
+              Heading (or just larger) text should have a ratio of at least 3:1. Larger text is defined as at least
+              18pt, or 14pt bold.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="references" class="main-section">
+        <header>
+          <h2>References</h2>
+        </header>
+        <article>
+          <ul>
+            <li>
+              Accessibility documentation on this page taken from <a
+                href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank">MDN</a>
+            </li>
+            <li>
+              Information on semantic HTML taken from <a
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines"
+                target="_blank">MDN guide on using HTML sections and outlines</a>
+            </li>
+            <li>
+              Information on good accessibility practices taken from <a
+                href="https://www.freecodecamp.org/learn/responsive-web-design/applied-accessibility/"
+                target="_blank">freeCodeCamp.org</a>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
